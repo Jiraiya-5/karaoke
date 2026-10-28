@@ -1,0 +1,64 @@
+.song-info {
+  margin-bottom: 12px;
+  font-size: 15px;
+  overflow: hidden;
+  max-width: 100%;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+  user-select: none;
+
+  &.fullscreen {
+    margin-bottom: 0;
+    text-align: start;
+    justify-content: start;
+    font-size: 20px;
+  }
+
+  .song-num {
+    border-radius: 5px;
+    text-align: center;
+    min-width: 90px;
+    font-weight: 700;
+    background-color: var(--eki-secondary-color);
+    padding: 5px;
+
+    &.next {
+      background-color: var(--eki-warning-color);
+      color: var(--eki-bg-color);
+    }
+  }
+
+  .title {
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: var(--eki-font-color);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    &:hover {
+      color: var(--eki-secondary-color);
+    }
+  }
+
+  .artist {
+    opacity: 0.7;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: var(--eki-font-color);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    &:hover {
+      opacity: 0.9;
+      color: var(--eki-secondary-color);
+    }
+  }
+}

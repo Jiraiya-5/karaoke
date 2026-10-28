@@ -1,0 +1,327 @@
+.controls-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 280px;
+  width: 280px;
+  color: var(--eki-font-color);
+  z-index: 30;
+  border-top: 1px solid var(--eki-border-color);
+  border-right: 1px solid var(--eki-border-color);
+  background-color: var(--eki-bg-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  padding: 15px 0;
+  transition: all 0.3s ease;
+
+  .mobile-control {
+    display: none;
+  }
+
+  &.hide {
+    z-index: -1;
+    display: none;
+  }
+
+  .player-icon {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 0 5px;
+
+    &.hiden {
+      opacity: 0;
+    }
+
+    &.main {
+      margin: 0 10px;
+    }
+  }
+
+  .song-img {
+    position: relative;
+    width: 90px;
+    height: 90px;
+    border-radius: 10px;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+
+    .song-num {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      font-size: 20px;
+      color: var(--eki-danger-color);
+      background-color: var(--eki-border-color);
+      text-align: center;
+      padding: 5px 0;
+      opacity: 0;
+      font-weight: 700;
+      transition: all 0.3s ease;
+
+      &.show {
+        opacity: 0.75;
+      }
+    }
+
+    .img {
+      width: 100%;
+      height: 100%;
+    }
+
+    .def-icon {
+      color: var(--eki-black-color);
+      font-size: 30px;
+      opacity: 0.7;
+    }
+
+    .tone-control {
+      position: absolute;
+      right: 0;
+      top: 0;
+      height: 100%;
+      display: flex;
+      align-items: start;
+      justify-content: space-around;
+      flex-direction: column;
+      transform: translateX(100%);
+      padding: 0 5px;
+
+      .tone-icon {
+        margin: 5px 0;
+
+        .value {
+          margin: 0 2px;
+          font-weight: 600;
+          font-size: 9px;
+          color: var(--eki-font-color);
+        }
+      }
+    }
+  }
+
+  .player-controls {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 10px;
+
+    .main {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  .song-slider {
+    width: 100%;
+    padding: 0 15px;
+    --va-slider-horizontal-input-wrapper-margin-right: 0px;
+
+    .time-info {
+      cursor: default;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+  }
+
+  .extra-control {
+    margin-top: 10px;
+    padding: 0 15px;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    .vol-controller {
+      width: 70%;
+    }
+  }
+}
+
+.vol-controller-expand {
+  margin: 5px 10px;
+  color: var(--eki-font-color);
+
+  .player-icon {
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      color: var(--eki-secondary-color);
+      transform: scale(1.1);
+      -webkit-transform: scale(1.1);
+      -moz-transform: scale(1.1);
+    }
+  }
+}
+
+.tone-control {
+  width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  padding: 0 5px;
+
+  &.disabled {
+    opacity: 0.4;
+    pointer-events: none;
+  }
+
+  .tone-icon {
+    margin: 5px 0;
+
+    .value {
+      margin: 0 2px;
+      font-weight: 600;
+      font-size: 9px;
+      color: var(--eki-font-color);
+    }
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .controls-container {
+    z-index: 60;
+    left: 50%;
+    transform: translate(-50%, 100%);
+    border: 2px solid var(--eki-border-color);
+    border-radius: 10px;
+
+    .mobile-control {
+      opacity: 0.65;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: 0;
+      background-color: var(--eki-danger-color);
+      color: var(--eki-bg-color);
+      padding: 5px 15px;
+      width: auto;
+      text-align: center;
+      border-radius: 7px 7px 0 0;
+      left: 50%;
+      transform: translate(-50%, -100%);
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+
+      .icon {
+        margin-right: 10px;
+      }
+    }
+
+    &.on-top {
+      bottom: unset;
+      top: 0;
+      transform: translate(-50%, -100%);
+
+      .mobile-control {
+        top: unset;
+        bottom: 0;
+        transform: translate(-50%, 100%);
+        border-radius: 0 0 7px 7px;
+      }
+
+      &.opened {
+        transform: translate(-50%);
+        transition: all 0.3s ease;
+
+        .mobile-control {
+          opacity: 1;
+        }
+      }
+    }
+
+    &.opened {
+      transform: translate(-50%);
+      transition: all 0.3s ease;
+
+      .mobile-control {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .controls-container {
+    z-index: 60;
+    left: 50%;
+    transform: translate(-50%, 100%); /* Oculto por defecto */
+    border: 2px solid var(--eki-border-color);
+    border-radius: 10px;
+    
+    .mobile-control {
+      opacity: 0.65;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: 0;
+      background-color: var(--eki-danger-color); /* El color amarillo/dorado */
+      color: var(--eki-bg-color);
+      padding: 5px 15px;
+      width: auto;
+      text-align: center;
+      border-radius: 7px 7px 0 0;
+      left: 50%;
+      transform: translate(-50%, -100%);
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    
+    &.opened {
+      transform: translate(-50%, 0); /* Se muestra al hacer clic */
+    }
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .controls-container {
+    z-index: 60;
+    left: 50%;
+    transform: translate(-50%, 100%); /* 👈 Oculto por defecto */
+    border: 2px solid var(--eki-border-color);
+    border-radius: 10px;
+    
+    .mobile-control {
+      opacity: 0.65;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: 0;
+      background-color: var(--eki-danger-color); /* El color de la franja */
+      color: var(--eki-bg-color);
+      padding: 5px 15px;
+      width: auto;
+      text-align: center;
+      border-radius: 7px 7px 0 0;
+      left: 50%;
+      transform: translate(-50%, -100%);
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    
+    &.opened {
+      transform: translate(-50%, 0); /* 👈 Se muestra al hacer clic */
+    }
+  }
+}

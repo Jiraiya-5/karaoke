@@ -1,0 +1,122 @@
+.configs-container {
+  min-width: 280px;
+  max-width: 90vw;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  height: auto;
+  background-color: transparent;
+
+  /* Scroll container */
+  .va-scroll-container {
+    max-height: min(500px, 100vh - 80px);
+  }
+
+  /* ── Expanders (las tarjetas de opciones) ── */
+  .expander {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-radius: 8px;
+    margin-bottom: 2px;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.08);
+    }
+
+    .head {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--eki-font-color);
+    }
+
+    .head-icon {
+      color: var(--eki-font-color);
+      opacity: 0.7;
+    }
+
+    /* Flechas de expandir/colapsar */
+    .va-icon {
+      color: var(--eki-font-color);
+      opacity: 0.6;
+    }
+  }
+
+  /* ── Sección de título (ej. "Configuración" con flecha) ── */
+  .expander.section {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 12px;
+    margin-bottom: 8px;
+    border-radius: 0;
+
+    .head {
+      font-weight: 700;
+      font-size: 16px;
+    }
+
+    .head-icon {
+      font-size: 20px;
+    }
+  }
+
+  /* ── Subsecciones (ej. "Visuales", "Funcionalidades") ── */
+  .expander.subsection {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--eki-secondary-color);
+    opacity: 0.7;
+    margin-top: 12px;
+    margin-bottom: 4px;
+    padding: 8px 15px;
+    cursor: default;
+    
+    &:hover {
+      background-color: transparent;
+    }
+  }
+
+  /* ── Ajustes para los switches ── */
+  .va-switch {
+    --va-switch-checker-background-color: var(--eki-secondary-color);
+    --va-switch-checker-background-color-active: var(--eki-secondary-color);
+  }
+
+  /* ── Ajuste para los íconos de la derecha (check) ── */
+  .expander .va-icon {
+    margin-left: auto;
+  }
+
+  /* ── Selectores (fuente, video) ── */
+  .va-select {
+    --va-select-background: rgba(255, 255, 255, 0.05);
+    --va-select-border-color: transparent;
+    --va-select-color: var(--eki-font-color);
+    min-width: 120px;
+  }
+
+  /* ── Botón de QR ── */
+  .qr-shortcut {
+    width: 280px;
+    padding: 15px;
+  }
+}
+
+/* ── Fondo del modal (el "popover") ── */
+.fullscreen-modal {
+  background-color: #1c1c1ce6;
+  padding: 10px;
+  overflow: hidden;
+  border-radius: 12px;
+  color: #fff;
+  min-height: 100px;
+  max-height: 80vh;
+  width: 320px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+}

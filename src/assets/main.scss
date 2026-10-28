@@ -1,0 +1,39 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+:root {
+  --eki-primary-color: #6022c6;
+  --eki-secondary-color: #8960fc;
+  --eki-contrast-color: #9b76ff;
+  --eki-complementary-color: #e800ac;
+  --eki-font-color: #ffffff;
+  --eki-bg-color: #16151a;
+  /*--eki-bg-color-gradient: #16151ade;*/
+  --eki-bg-color-gradient: rgba(22, 21, 26, 0.8);
+  --eki-border-color: #222227;
+  --eki-error-color: #dc3545;
+  --eki-warning-color: #ffda6c;
+  --eki-danger-color: #ffcd37;
+  --eki-success-color: #28a745;
+  --eki-black-color: #282828;
+}
+
+body {
+  background-color: var(--eki-bg-color);
+  color: var(--eki-font-color);
+  overflow: hidden;
+}
+
+.eki-viewport {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}

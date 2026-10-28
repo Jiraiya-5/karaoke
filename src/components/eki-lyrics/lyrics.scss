@@ -1,0 +1,198 @@
+/* ========================================== */
+/* CONTENEDOR PRINCIPAL DE LAS LETRAS         */
+/* ========================================== */
+.lrc-maincontainer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding-top: 35px;
+  padding-bottom: 15px;
+  width: 100%;
+  color: var(--eki-font-color);
+  font-weight: 1000;
+  z-index: 10;
+  background: linear-gradient(0deg, var(--eki-bg-color) 50%, transparent 100%);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  user-select: none;
+
+  /* Se oculta deslizándose hacia abajo */
+  &.hidden {
+    transform: translateY(100%);
+  }
+
+  /* Modo pantalla completa */
+  &.fullscreen {
+    width: 100%;
+    background: transparent;
+    height: 100%;
+    bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  /* Modo "arriba" (letra arriba y video abajo) */
+  &.on-top {
+    top: 0;
+    bottom: unset;
+    background: linear-gradient(180deg, var(--eki-bg-color) 50%, transparent 100%);
+
+    &.hidden {
+      z-index: 0;
+      transform: translateY(-100%);
+    }
+
+    .lrc {
+      justify-content: start;
+    }
+  }
+
+  /* ========================================== */
+  /* VIDEO DE YOUTUBE                           */
+  /* ========================================== */
+  .lrc-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: 1;
+
+    &.visible {
+      opacity: 1;
+    }
+  }
+
+  /* ========================================== */
+  /* CONTENEDOR FULLSCREEN Y SOMBRAS            */
+  /* ========================================== */
+  .full-lrc {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+
+    .current-lrc {
+      height: auto;
+      width: 100%;
+    }
+
+    .top-shadow,
+    .bottom-shadow {
+      width: 100%;
+      height: 50%;
+      z-index: 10;
+      position: absolute;
+      left: 0;
+      pointer-events: none;
+    }
+
+    .top-shadow {
+      top: 0;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, transparent 100%);
+    }
+
+    .bottom-shadow {
+      bottom: 0;
+      background: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, transparent 100%);
+    }
+  }
+
+  /* ========================================== */
+  /* ESTILOS GENERALES DE LA LÍNEA              */
+  /* ========================================== */
+  .lrc {
+    position: relative;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+
+    &.minus {
+      text-transform: lowercase;
+    }
+
+    &.mayus {
+      text-transform: uppercase;
+    }
+  }
+
+  /* ========================================== */
+  /* SEMÁFORO DE CONTEO (3, 2, 1)               */
+  /* ========================================== */
+  .countdown {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 150px;
+    font-weight: 900;
+    color: var(--eki-secondary-color);
+    z-index: 999;
+    text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    animation: pulse 1s infinite;
+  }
+}
+
+/* ========================================== */
+/* EFECTO DE RELLENO POR SÍLABA (KARAOKE)     */
+/* ========================================== */
+
+.active-lrc-wrapper {
+  display: block;
+  width: 100%;
+  text-align: center;
+  white-space: normal;
+  line-height: 1.4;
+  padding: 10px 0;
+}
+
+/* Las sílabas base (blancas) */
+.syllable {
+  font-weight: 900;
+  font-size: clamp(24px, 7vh, 5vw);
+  color: #ffffff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+  transition: color 0.1s linear;
+  white-space: pre-wrap;
+}
+
+/* La sílaba activa (amarilla) */
+.syllable.syllable-highlight {
+  color: var(--eki-warning-color);
+}
+
+/* Línea anterior (gris apagada) */
+.previous-line {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: clamp(20px, 6vh, 4vw);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+/* ========================================== */
+/* ANIMACIONES                                */
+/* ========================================== */
+@keyframes pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.5);
+    opacity: 0;
+  }
+}

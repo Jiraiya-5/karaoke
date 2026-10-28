@@ -1,0 +1,109 @@
+.input-container {
+  position: relative;
+  width: 600px;
+  max-width: calc(100vw - 140px);
+  transition: all 0.3s ease;
+
+  &.shrink {
+    max-width: calc(100vw - 170px);
+  }
+
+  &.hide {
+    opacity: 0;
+    transform: scale(0);
+    -moz-transform: scale(0);
+    -webkit-transform: scale(0);
+  }
+
+  .search-input {
+    --va-input-wrapper-border-radius: 25px;
+    --va-input-wrapper-border-width: 0px;
+    --va-input-wrapper-min-height: 45px;
+    --va-input-content-horizontal-padding: 20px;
+
+    .search-icon {
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-left: 5px;
+
+      &:hover {
+        color: var(--eki-secondary-color);
+      }
+    }
+  }
+
+  .suggestions-modal {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -10px;
+    transform: translateY(100%);
+    -moz-transform: translateY(100%);
+    -webkit-transform: translateY(100%);
+    max-width: 100%;
+    width: inherit;
+    border-radius: 25px;
+    background-color: var(--eki-border-color);
+    padding: 20px 0;
+    transition: all 0.3s ease;
+    max-height: 60vh;
+    height: auto;
+    min-height: 15vh;
+    opacity: 0;
+    z-index: -1;
+    pointer-events: none;
+
+    &.show {
+      pointer-events: all;
+      opacity: 1;
+      z-index: 99;
+    }
+
+    &.height-tauri {
+      height: 60vh;
+    }
+
+    .main-title {
+      font-size: 25px;
+      margin-bottom: 15px;
+      color: var(--eki-complementary-color);
+      padding: 0 15px;
+    }
+
+    .section-title {
+      font-size: 17px;
+      margin: 10px 0;
+      padding: 0 15px;
+    }
+
+    .divider {
+      background-color: var(--eki-bg-color);
+      height: 3px;
+      width: 100%;
+      content: "";
+      margin: 15px 0;
+    }
+
+    .suggestion-card {
+      padding: 5px 15px;
+      transition: all 0.3s ease;
+      --va-list-item-section-avatar-min-width: 1rem;
+
+      &:hover {
+        background-color: #ffffff16;
+      }
+
+      .suggestion-label {
+        color: #fff;
+      }
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    .suggestions-modal {
+      left: -35px;
+      width: calc(100vw - 30px);
+      max-width: unset;
+    }
+  }
+}

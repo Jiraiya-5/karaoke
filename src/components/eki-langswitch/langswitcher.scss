@@ -1,0 +1,58 @@
+.lang-switch {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 1;
+    color: var(--eki-contrast-color);
+  }
+
+  .lang-icon {
+    opacity: 0.9;
+    font-size: 20px;
+  }
+
+  .label {
+    font-size: 14px;
+    font-weight: bolder;
+    line-height: 14px;
+    margin-top: 2px;
+  }
+}
+
+.lang-code {
+  font-size: 13px;
+  font-weight: bolder;
+  color: var(--eki-border-color);
+  background-color: #fff;
+  padding: 2px 4px;
+  border-radius: 3px;
+}
+
+.ekimodal {
+  background: var(--eki-black-color);
+  border-radius: 8px;
+  overflow: hidden;
+  min-width: 150px;
+
+  .option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: var(--eki-font-color);
+    opacity: 0.75;
+
+    &:hover {
+      opacity: 1;
+      background-color: #ffffff10;
+    }
+  }
+}

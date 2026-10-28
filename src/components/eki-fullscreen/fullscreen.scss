@@ -1,0 +1,137 @@
+.eki-fullscreen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  color: var(--eki-font-color);
+  z-index: 59;
+  background-color: var(--eki-bg-color);
+  transition: all 0.3s ease;
+
+  &.show-bars {
+    .head {
+      top: 0;
+      opacity: 1;
+
+      &.add-space {
+        top: 81px;
+      }
+
+      &.add-space-multi {
+        top: 150px;
+      }
+    }
+
+    .foot {
+      bottom: 0;
+      opacity: 1;
+    }
+  }
+
+  .head {
+    position: absolute;
+    left: 0;
+    top: -60px;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; // 👈 Esto separa la canción y el botón
+    padding: 0 20px;
+    z-index: 15;
+    opacity: 0;
+    transition: all 0.4s ease-out;
+    background: linear-gradient(0deg, transparent 0%, var(--eki-bg-color) 100%);
+
+    // 👇 Forzamos a que el botón de configuración siempre esté a la derecha
+    .head-right {
+      margin-left: auto;
+    }
+  }
+
+  .foot {
+    position: absolute;
+    left: 0;
+    bottom: -80px;
+    width: 100%;
+    height: 70px;
+    z-index: 15;
+    transition: all 0.4s ease;
+    opacity: 0;
+    background: linear-gradient(0deg, var(--eki-bg-color) 0%, transparent 100%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15px;
+
+    .progress {
+      width: 100%;
+      height: auto;
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 0 10px;
+      transform: translateY(-50%);
+    }
+
+    .controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+
+      .volume-control {
+        width: 30px;
+        overflow: hidden;
+        transition: all 0.3s ease;
+
+        &.visible {
+          padding-right: 15px;
+          overflow: visible;
+          width: 150px;
+        }
+      }
+    }
+  }
+}
+
+/* Estilos de los modales (Configuración y Efectos) */
+.fullscreen-modal {
+  background-color: #1c1c1ce6; /* Fondo oscuro semi-transparente */
+  padding: 10px;
+  overflow: hidden;
+  border-radius: 12px;
+  color: #fff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+
+  .item {
+    padding: 7px 5px;
+    user-select: none;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #ffffff1a;
+    }
+  }
+}
+
+/* Modal específico para Efectos (con ancho fijo para los emojis) */
+.effects-modal {
+  width: 340px !important;
+  max-width: 90vw !important;
+  padding: 15px !important;
+  background-color: #1c1c1ce6 !important;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+
+  /* Ajustar el grid de efectos para que quepan 4 columnas */
+  .effects {
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 8px !important;
+    padding: 5px !important;
+  }
+}

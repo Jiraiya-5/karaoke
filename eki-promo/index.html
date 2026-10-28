@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head><title>Pago</title></head>
+<body>
+  <h1>Pasarela de pago (simulada)</h1>
+  <p>Plan: <span id="plan"></span></p>
+  <p>Email: <span id="email"></span></p>
+  <script>
+    const params = new URLSearchParams(window.location.search)
+    document.getElementById('plan').textContent = params.get('plan')
+    document.getElementById('email').textContent = params.get('email')
+  </script>
+</body>
+</html>

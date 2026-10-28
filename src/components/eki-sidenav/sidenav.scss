@@ -1,0 +1,125 @@
+.side-nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: calc(100% - 280px);
+  width: 280px;
+  color: var(--eki-font-color);
+  z-index: 50;
+  border-right: 1px solid var(--eki-border-color);
+  background-color: var(--eki-bg-color);
+  transition: all 0.3s ease;
+
+  &.hide {
+    transform: translateX(-100%);
+  }
+
+  .logo {
+    position: relative;
+    border-right: 1px solid var(--eki-border-color);
+    border-bottom: 1px solid var(--eki-border-color);
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-wrap: wrap;
+    padding: 0 30px;
+    height: 70px;
+    user-select: none;
+
+    .app-name {
+      font-weight: 600;
+      margin-left: 15px;
+      font-size: 20px;
+    }
+
+    .mobile-nav {
+      position: absolute;
+      top: 0;
+      right: 0;
+      transform: translateX(100%);
+      z-index: 51;
+      height: 100%;
+      width: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      display: none;
+
+      .icon {
+        opacity: 0.8;
+        font-size: 20px;
+        transition: all 0.3s ease;
+        cursor: pointer;
+
+        &:hover {
+          opacity: 1;
+          color: var(--eki-contrast-color);
+        }
+      }
+    }
+  }
+
+  .nav-container {
+    height: calc(100% - 70px);
+
+    .nav-links {
+      width: 100%;
+      padding: 15px 30px;
+
+      .nav-link {
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        color: var(--eki-font-color);
+        width: max-content;
+        margin: 20px 0;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        font-weight: 400;
+        opacity: 0.65;
+
+        .link-icon {
+          width: 21px;
+          height: 21px;
+          margin-right: 15px;
+          transition: all 0.3s ease;
+        }
+
+        &.router-link-exact-active,
+        &.router-link-active,
+        &.active-nav {
+          color: var(--eki-font-color);
+          opacity: 1;
+
+          .link-icon {
+            color: var(--eki-secondary-color);
+          }
+        }
+
+        &:hover {
+          opacity: 1;
+
+          .link-icon {
+            color: var(--eki-secondary-color);
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .side-nav {
+    transform: translateX(-100%);
+    height: 100%;
+
+    .logo .mobile-nav {
+      display: flex;
+    }
+
+    &.opened {
+      z-index: 50;
+      transform: translateX(0);
+    }
+  }
+}

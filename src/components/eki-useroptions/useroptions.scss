@@ -1,0 +1,51 @@
+.user-icon {
+  .icon {
+    font-size: 23px;
+    color: var(--eki-font-color);
+    opacity: 0.8;
+    transition: all 0.3s ease;
+  }
+
+  &:hover .icon {
+    opacity: 1;
+    color: var(--eki-secondary-color);
+  }
+}
+
+.ekimodal {
+  background: var(--eki-black-color);
+  width: 220px;
+  height: auto;
+  border-radius: 8px;
+  overflow: hidden;
+
+  .option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px 15px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    color: var(--eki-font-color);
+    opacity: 0.65;
+    font-weight: 400;
+    cursor: pointer;
+    font-size: 15px;
+
+    .modal-icon {
+      transition: all 0.3s ease;
+      width: 18px;
+      height: 18px;
+    }
+
+    &:hover {
+      opacity: 1;
+      background-color: #ffffff10;
+
+      .modal-icon {
+        color: var(--eki-secondary-color);
+      }
+    }
+  }
+}

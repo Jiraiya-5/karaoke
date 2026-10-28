@@ -1,0 +1,39 @@
+.reactions-canvas {
+  pointer-events: none;
+  position: fixed;       /* 👈 Clave: posición fija para cubrir toda la pantalla */
+  top: 0;
+  left: 0;
+  width: 100vw;          /* 👈 Ancho total del viewport */
+  height: 100vh;         /* 👈 Alto total del viewport */
+  z-index: 99999;        /* 👈 Por encima de todo */
+  overflow: hidden;
+
+  .emoji {
+    position: absolute;
+    font-size: 65px;
+    bottom: 25px;
+    animation-name: float;
+    animation-timing-function: ease-in-out;
+  }
+}
+
+@keyframes float {
+  0% {
+    bottom: -50px;
+    opacity: 1;
+  }
+  25% {
+    transform: translateX(70%) scale(0.8);
+  }
+  50% {
+    transform: translateX(-70%) scale(1.4);
+    opacity: 1;
+  }
+  75% {
+    transform: translateX(70%);
+  }
+  100% {
+    bottom: 100%;
+    opacity: 0;
+  }
+}
