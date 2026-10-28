@@ -14,7 +14,7 @@ export default defineConfig({
       },
       workbox: {
         globPatterns: ['**/*.{js,css,html,ico,png,svg,webp,woff,woff2}'],
-        maximumFileSizeToCacheInBytes: 5 * 1024 * 1024 // 5 MB
+        maximumFileSizeToCacheInBytes: 10 * 1024 * 1024 // 5 MB
       },
       manifest: {
         name: 'ekiu-karaoke',
@@ -42,6 +42,7 @@ export default defineConfig({
       }
     })
   ],
+  base:"https://Jiraiya-5.github.io/karaoke/",
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
